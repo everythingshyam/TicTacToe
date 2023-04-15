@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap');
+
+:root{
+    --main-dark: #272727;
+    --main-light: #C08497;
+    --main-light2: #F1DABF;
+    --secondary-bright: #FFFBFF;
+    --secondary-dark: #6B2737;
+
+    --main-dark-trans: rgba(39, 39, 39,.5);
+    --main-light-trans: rgba(192, 132, 151,.5);
+    --main-light2-trans: rgba(241, 218, 191,.5);
+    --secondary-bright-trans: rgba(255, 251, 255,.5);
+    --secondary-dark-trans: rgba(107, 39, 55,.5);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:'Ubuntu','Courier New', Courier, monospace;
+    background-color: var(--main-light2);
+}
+header{
+    height: 15vh;
+    background-color: var(--main-dark);
+    color: var(--secondary-bright);
+    display: flex;
+    justify-content: center;
+    font-size: 8vh;
+    /* vertical-align:middle; */
+}
+.nav-bar{
+    display: flex;
+    align-items: center;
+}
+.nav-list{
+    list-style-type: none;
+}
+.invisible-links{
+    text-decoration: none;
+}
+.container{
+    height: 73vh;
+    /* background-color: aqua; */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.game-header{
+    height: 10vh;
+    width: 80vw;
+    margin: 20px;
+    background-color: var(--main-light-trans);
+
+    border-radius: 10vh;
+    
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+    /* justify-content: center; */
+}
+.game-header div{
+    padding: 20px;
+}
+.reload-icon img{
+    height: 50px;
+}
+
+.game-grid{
+    display: grid;
+    grid-template-columns: repeat(3,8vw);
+    grid-template-rows: repeat(3,8vw);
+
+    margin: 40px;
+}
+.box{
+    background-color: var(--secondary-bright-trans);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    font-size: 40px;
+    
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+.box:hover{
+    transform: scale(1.2);
+    transition: 1s;
+    background-color: var(--secondary-dark-trans);
+    cursor: pointer;
+}
+
+.results{
+    display: flex;
+    width: 80vw;
+    justify-content: space-between;
+    margin: 40px;
+}
+.results-sub{
+    display: flex;
+}
+
+footer{
+    height: 12vh;
+    background-color: var(--main-dark);
+    color: var(--secondary-bright);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
