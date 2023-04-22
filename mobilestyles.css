@@ -1,6 +1,5 @@
 /* 
- TODO make proper themed colors
- TODO css for smartphone screens
+ TODO footer height inapt
 */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap");
 
@@ -52,9 +51,11 @@ body {
   font-family: "Ubuntu", "Courier New", Courier, monospace;
   background-color: var(--main-lighter);
   color: var(--main-lightest);
+  overflow: scroll;
 }
+/* -------------------------------------------------------------------------------------------------------------- */
 header {
-  height: 15vh;
+  height: 10vh;
   background-color: var(--main-darker);
   color: var(--secondary-bright);
   display: flex;
@@ -64,6 +65,7 @@ header {
 .nav-bar {
   display: flex;
   align-items: center;
+  font-size: 70%;
 }
 .nav-list {
   display: flex;
@@ -82,7 +84,7 @@ header {
   padding-left: 5px;
 }
 .header-icon {
-  height: 10vh;
+  height: 7vh;
 }
 /* --------------------------------------------------------------------------------------------------------------------- */
 .container {
@@ -90,8 +92,8 @@ header {
   /* display: flex; */
   /* flex-direction: column; */
   display: grid;
-  grid-template-rows: 10vh 50vh;
-  grid-template-columns: 30vw 25vw;
+  grid-template-rows: 6vh 45vh 10vh;
+  grid-template-columns: 90vw;
   grid-gap: 10px;
   /* display: flex; */
   align-items: center;
@@ -114,27 +116,26 @@ header {
 }
 /* ----------------------------------------------------- */
 .turn-text {
-  grid-row: 1;
-  grid-column: 1;
+  /* grid-row: 1;
+  grid-column: 1; */
   display: flex;
   justify-content: center;
   align-items: center;
   text-shadow: 2px 2px 8px var(--main-lighter);
 }
 #turn-text {
-  font-size: 5vh;
+  /* font-size: 5vh; */
+  font-size: 120%;
 }
 /* -------------------------------------------------- */
-.grid {
+/* .grid {
   grid-row: 2;
   grid-column: 1;
-}
+} */
 #grid {
   display: grid;
-  grid-template-columns: repeat(3, min(10vw, 15vh));
-  grid-template-columns: repeat(3, min(8vw, 14vh));
-  grid-template-rows: repeat(3, min(10vw, 15vh));
-  grid-template-rows: repeat(3, min(8vw, 14vh));
+  grid-template-columns: repeat(3, min(27vw, 12vh));
+  grid-template-rows: repeat(3, min(27vw, 12vh));
   /* margin: 20px; */
   background-color: var(--main-lightest);
   /* padding: 5px; */
@@ -177,19 +178,19 @@ header {
   margin-right: 0;
 }
 /* ------------------------------------------------------------------------------------------------------------- */
-.control-panel {
+/* .control-panel {
   grid-row: span 2;
-}
+} */
 #control-panel {
   /* height: 50vh; */
   /* width: 30vw; */
   /* background-color: var(--main-light); */
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  width: 25vw;
-  height: 30vh;
+  width: 80vw;
+  height: 13vh;
 }
 .score {
   /* width: 20vw; */
@@ -197,17 +198,19 @@ header {
   justify-content: space-around;
 }
 .score-board {
-  height: min(15vh, 10vw);
-  width: min(10vh, 5vw);
+  height: min(12vh, 45vw);
+  width: min(8vh, 32vw);
+  /*  */
   /* height: 10vw; */
   background-color: var(--main-light);
   /* margin: 20px; */
   padding: 2px 8px;
+  /* padding: 0; */
   margin: 10px;
   /* margin-bottom: 0; */
   display: grid;
-  grid-template-rows: 1.2fr 1fr;
-  font-size: 3vw;
+  grid-template-rows: 1fr 1.2fr;
+  font-size: 7vw;
   /* flex-direction: column; */
   border-radius: 5px;
 }
@@ -217,7 +220,7 @@ header {
   align-items: center;
 }
 .player-label {
-  font-size: 2.5vw;
+  font-size: 5vw;
   text-shadow: 2px 2px 10px var(--main-lighter);
 }
 #label-x{
@@ -234,10 +237,10 @@ header {
 #reset-btn {
   /* text-transform: uppercase; */
   font-weight: bold;
-  font-size: 2.5vh;
+  font-size: 2.2vh;
   /* display: none; */
-  height: 40px;
-  width: 13vw;
+  height: 30px;
+  width: 20vw;
   border-radius: 2vh;
   border: 2px solid var(--main-darker);
   /* height: 3vw; */
@@ -251,21 +254,31 @@ header {
   background-color: var(--imp-red);
 }
 footer {
-  height: 12vh;
+  /* height: 12vh; */
+  height: auto;
+  padding: 10px;
   background-color: var(--main-darker);
   color: var(--secondary-bright);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 80%;
 }
 .footer-links {
   display: flex;
+  flex-direction: column;
   width: 80vw;
   justify-content: space-between;
 }
 .footer-link {
-  padding: 5px;
-  border-radius: 5px;
+    /* height: 2px; */
+}
+.footer-link>a {
+    padding: 2px 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    /* justify-content: center; */
 }
 .footer-link:hover {
   cursor: pointer;

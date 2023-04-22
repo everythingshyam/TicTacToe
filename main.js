@@ -1,11 +1,14 @@
 // ----------------------------------------------------
 // STATUS functionalities working properly
 //reset button DONE
-    //game win/tie test DONE
-    //checking for tie TODO
-    //proper UI TODO
-    //add sound effects TODO
+//game win/tie test DONE
+//checking for tie TODO
+//proper UI TODO
+//add sound effects TODO
+// TODO instead of alert bar, use manually made dialog box
+// TODO color method
 // -----------------------------------------------------
+
 const winArray = [
   [0, 4, 8],
   [2, 4, 6],
@@ -29,23 +32,36 @@ var btn = document.getElementById("reset-btn");
 var v = document.getElementById("turn-text");
 
 // -----------------------------------------------------------
+//RUN AT STARTUP SECTION
+
+restart()
+
+// ----------------------------------------------------
 
 function restart() {
+  console.log("restart function called");
   Array.from(boxes).forEach((ele) => {
     ele.innerHTML = " ";
   });
   for (let i = 0; i < isClicked.length; i++) {
     isClicked[i] = 0;
-    console.log("Checking for clicks " + isClicked[0]);
   }
 
   function checkTie() {
     console.log("\nChecking Tie");
   }
 
-  turn=0
+  turn = 0;
   var v = document.getElementById("turn-text");
-  v.innerHTML = "Turn of X";
+  if(Math.random()<.5)
+  {
+    v.innerHTML = "Turn of X";
+    turn=0
+  }
+  else{
+    v.innerHTML="Turn of O"
+    turn=1
+  }
 }
 
 function check(turn) {
@@ -65,32 +81,39 @@ function check(turn) {
 }
 
 btn.onclick = () => {
-  restart();
-  score_o_view.innerHTML = "0";
-  score_x_view.innerHTML = "0";
+  console.log("Clicked on reset btn");
+  let cnfreset = window.confirm(
+    "This will reset the scores as well. Go ahead?"
+  );
+  if (cnfreset) {
+    console.log("Confirmed to reset.");
+    restart();
+    score_o_view.innerHTML = "0";
+    score_x_view.innerHTML = "0";
+  }
+  else{
+    console.log("Cancelled reset operation.");
+  }
 };
 
-function checkTie(){
-    let f=1;
-    for(let i=0;i<isClicked.length;i++)
-    {
-        if(isClicked[i]==0)
-        {
-            f=0
-            break;
-        }
+function checkTie() {
+  let f = 1;
+  for (let i = 0; i < isClicked.length; i++) {
+    if (isClicked[i] == 0) {
+      f = 0;
+      break;
     }
-    if(f==1)
-    {
-        alert('Its a tie!')
-        restart();
-    }
+  }
+  if (f == 1) {
+    alert("Its a tie!");
+    restart();
+  }
 }
 
 Array.from(boxes).forEach((ele) => {
   ele.addEventListener("click", () => {
     //alert(ele.target);
-    let done=false      //stores if win or tie is done (happened)
+    let done = false; //stores if win or tie is done (happened)
     if (isClicked[ele.id] == 0) {
       console.log("Box click approved");
       isClicked[ele.id] = 1;
@@ -98,23 +121,21 @@ Array.from(boxes).forEach((ele) => {
         ele.innerHTML = "X";
         turn = 1;
         setTimeout(function () {
-          done=check("X");
+          done = check("X");
         }, 100);
         //   score_x_view.innerHTML = ++score_x;
         // var v = document.getElementById("turn-text");
         v.innerHTML = "Turn of O";
-        if(done==true)
-            return
+        if (done == true) return;
       } else {
         ele.innerHTML = "O";
         turn = 0;
         setTimeout(function () {
-          done=check("O");
+          done = check("O");
         }, 100);
         //   score_o_view.innerHTML = ++score_o;
         v.innerHTML = "Turn of X";
-        if(done==true)
-            return
+        if (done == true) return;
       }
       // checkTie();
     } else {
@@ -122,7 +143,7 @@ Array.from(boxes).forEach((ele) => {
     }
     // checkTie()
     setTimeout(function () {
-        done=checkTie();
-      }, 100);
+      done = checkTie();
+    }, 100);
   });
 });

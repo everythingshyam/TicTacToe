@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="./images/TicTacToeIcon-nobg-compressed.png" />
+    <title>Tic Tac Toe!</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Smartphone CSS -->
+    <link rel="stylesheet" media="screen and (max-device-width: 700px" href="./mobilestyles.css">
+</head>
+
+<body>
+    <header>
+        <nav class="nav-bar">
+            <ul class="nav-list">
+                <li><img class="header-icon" src="./images/TicTacToeIcon-nobg.png" alt=""></li>
+                <li><span><a href="#" class="invisible-links">TicTacToe</a></span></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="container-sub turn-text">
+            <div id="turn-text">Turn of X</div>
+        </div>
+        <div class="container-sub grid">
+            <div id="grid">
+                <div class="box box-0" id="0"></div>
+                <div class="box box-1" id="1"></div>
+                <div class="box box-2" id="2"></div>
+                <div class="box box-3" id="3"></div>
+                <div class="box box-4" id="4"></div>
+                <div class="box box-5" id="5"></div>
+                <div class="box box-6" id="6"></div>
+                <div class="box box-7" id="7"></div>
+                <div class="box box-8" id="8"></div>
+            </div>
+        </div>
+        <div class="container-sub control-panel">
+            <div id="control-panel">
+                <div class="score">
+                    <div class="score-board">
+                        <span class="player-label score-board-inner" id="label-x">X</span>
+                        <!-- <hr /> -->
+                        <span class="player-score score-board-inner" id="score-x">0</span>
+                    </div>
+                    <div class="score-board">
+                        <span class="player-label score-board-inner" id="label-o">O</span>
+                        <!-- <hr /> -->
+                        <span class="player-score score-board-inner" id="score-o">0</span>
+                    </div>
+                </div>
+                <div class="reset">
+                    <button onclick="restart()" id="reset-btn">Restart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <ul class="footer-links">
+            <li class="footer-link"><a class="invisible-links" href="https://github.com/shyam-1024/TicTacToe">View on GitHub</a></li>
+            <li class="footer-link"><a class="invisible-links" href="https://linktr.ee/everythingshyam">Know the developer</a></li>
+            <li class="footer-link"><a class="invisible-links" href="mailto:s1024creative@gmail.com?subject=Feedback%20from%20TicTacToe%20Website">Give Feedback</a></li>
+            <li class="footer-link"><a class="invisible-links" href="mailto:s1024creative@gmail.com?subject=Issue%20Reporting%20from%20TicTacToe%20Website">Report an issue</a></li>
+        </ul>
+    </footer>
+</body>
+<script src="./main.js"></script>
+
+</html>
