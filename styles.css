@@ -2,6 +2,7 @@
  TODO make proper themed colors
  TODO css for smartphone screens
  TODO change footer link text color on hover
+ TODO scroll not all working
 */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap");
 
@@ -13,7 +14,7 @@
   --main-darker: #242424;
   --main-darkest: #000;
 
-  --x-color: #3e6498;
+  --x-color: #1c5cb6;
   --o-color: #e53532;
 
   --tie-color: rgb(244, 244, 66);
@@ -21,18 +22,6 @@
   --lose-color: rgb(251, 58, 58);
 
   --imp-red: rgb(254, 17, 17);
-
-  /* --main-light: #C08497;*/
-  --main-light-diff: #c290a0;
-  --main-light2: #f1dabf;
-  --secondary-bright: #fffbff;
-  --secondary-dark: #6b2737;
-
-  /* --main-dark-trans: rgba(39, 39, 39,.5);
-    --main-light-trans: rgba(192, 132, 151,.5);
-    --main-light2-trans: rgba(241, 218, 191,.5);
-    --secondary-bright-trans: rgba(255, 251, 255,.5);
-    --secondary-dark-trans: rgba(107, 39, 55,.5); */
 }
 
 * {
@@ -43,11 +32,18 @@
   /*  */
   /* border: 1px solid black; */
   text-shadow: 2px 2px 8px var(--main-dark);
-  transition: background-color .5s ease;
+  transition: background-color 0.5s ease;
+  transition: color .5s ease;
 }
 .invisible-links {
   text-decoration: none;
   color: var(--main-lightest);
+}
+.transition-fast {
+  transition: background-color .5s ease;
+}
+.transition-slow {
+  transition: background-color 2s ease;
 }
 
 body {
@@ -119,23 +115,25 @@ header {
   grid-row: 1;
   grid-column: 1;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 #turn-text {
   font-size: 5vh;
-  text-shadow: 1px 1px 5px var(--main-light);
+  text-shadow: 1px 1px 5px var(--main-darker);
   padding: 10px;
 }
-.reset-board-btn{
-  height: 3vw;
+.reset-board-btn {
+  height: 5vh;
   padding: 5px;
   background-color: var(--main-lighter);
   opacity: 30%;
   border-radius: 50%;
+  margin-right: 6px;
 }
-.reset-board-btn:hover{
+.reset-board-btn:hover {
   opacity: 100%;
+  cursor: pointer;
 }
 
 /* -------------------------------------------------- */
@@ -189,7 +187,7 @@ header {
   font-size: 8vh;
   background-color: var(--main-dark);
   text-shadow: 1px 1px 2px var(--main-light);
-  /* transition: background-color .5s ease; */
+  transition: background-color 1s ease;
   /* border-radius: 10px; */
 }
 
@@ -197,7 +195,7 @@ header {
   background-color: var(--main-light);
   cursor: pointer;
 }
-.box-no-hover{
+.box-no-hover {
   background-color: var(--main-dark);
 }
 
@@ -265,12 +263,12 @@ header {
 .player-label {
   font-size: 2.5vw;
 }
-#label-x{
-    color: var(--x-color);
+#label-x {
+  color: var(--x-color);
 }
-#label-o{
-    color: var(--o-color);
-    text-shadow: 1px 1px 10px var(--main-darker);
+#label-o {
+  color: var(--o-color);
+  text-shadow: 1px 1px 10px var(--main-darker);
 }
 .player-score {
   border-radius: 5px;

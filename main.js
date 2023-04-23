@@ -23,16 +23,35 @@ const winArray = [
 
 var isClicked = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-const color_x=getComputedStyle(document.documentElement).getPropertyValue('--x-color')
-const color_o=getComputedStyle(document.documentElement).getPropertyValue('--o-color')
-const color_mainLight=getComputedStyle(document.documentElement).getPropertyValue('--main-light')
-const color_win=getComputedStyle(document.documentElement).getPropertyValue('--win-color')
-const color_lose=getComputedStyle(document.documentElement).getPropertyValue('--lose-color')
-const color_tie=getComputedStyle(document.documentElement).getPropertyValue('--tie-color')
-const color_maindark=getComputedStyle(document.documentElement).getPropertyValue('--main-dark')
+const color_x = getComputedStyle(document.documentElement).getPropertyValue(
+  "--x-color"
+);
+const color_o = getComputedStyle(document.documentElement).getPropertyValue(
+  "--o-color"
+);
 
-var container=document.getElementById("container");
-var turnTxt=document.getElementById("turn-text")
+const color_win = getComputedStyle(document.documentElement).getPropertyValue(
+  "--win-color"
+);
+const color_lose = getComputedStyle(document.documentElement).getPropertyValue(
+  "--lose-color"
+);
+const color_tie = getComputedStyle(document.documentElement).getPropertyValue(
+  "--tie-color"
+);
+
+const color_mainLight = getComputedStyle(
+  document.documentElement
+).getPropertyValue("--main-light");
+const color_mainDark = getComputedStyle(
+  document.documentElement
+).getPropertyValue("--main-dark");
+const color_mainDarker = getComputedStyle(
+  document.documentElement
+).getPropertyValue("--main-darker");
+
+var container = document.getElementById("container");
+var turnTxt = document.getElementById("turn-text");
 var boxes = document.getElementsByClassName("box");
 var score_x = 0;
 var score_o = 0;
@@ -42,15 +61,15 @@ var turn = 0;
 var btn = document.getElementById("reset-btn");
 var resetBoardBtn = document.getElementById("reset-board-btn");
 var v = document.getElementById("turn-text");
-//change colors of container, grid values score-x, score-o, 
+//change colors of container, grid values score-x, score-o,
 
 // ------------------------------------------------------------------------------------------
 //RUN AT STARTUP SECTION
 
-reset()
+reset();
 
 // ------------------------------------------------------------------------------------------
-function resetGameBoard(){
+function resetGameBoard() {
   Array.from(boxes).forEach((ele) => {
     ele.innerHTML = " ";
     ele.classList.remove("box-hover");
@@ -61,17 +80,15 @@ function resetGameBoard(){
   }
 }
 // ------------------------------------------------------------------------------------------
-function setTurn(){
-  if(Math.random()<.5)
-  {
+function setTurn() {
+  if (Math.random() < 0.5) {
     turnTxt.innerHTML = "Turn of X";
-    turn=0
-    color()
-  }
-  else{
-    turnTxt.innerHTML="Turn of O"
-    turn=1
-    color()
+    turn = 0;
+    color();
+  } else {
+    turnTxt.innerHTML = "Turn of O";
+    turn = 1;
+    color();
   }
 }
 function reset() {
@@ -84,36 +101,28 @@ function reset() {
   setTurn();
 }
 // ------------------------------------------------------------------------------------------
-function color(){
+function color() {
   //changing color based on turn of x and o
-  if(turn==0)
-  {
-    v.style.color=color_x
-    container.style.backgroundColor=color_x
-  }
-  else{
-    v.style.color=color_o
-    container.style.backgroundColor=color_o
+  if (turn == 0) {
+    v.style.color = color_x;
+    container.style.backgroundColor = color_x;
+  } else {
+    v.style.color = color_o;
+    container.style.backgroundColor = color_o;
   }
 
-  if(score_o==score_x)
-  {
-    score_x_view.style.backgroundColor=color_tie;
-    score_o_view.style.backgroundColor=color_tie;
-  }
-  else if(score_x>score_o)
-  {
-    score_x_view.style.backgroundColor=color_win;
-    score_o_view.style.backgroundColor=color_lose;
-  }
-  else
-  {
-    score_x_view.style.backgroundColor=color_lose;
-    score_o_view.style.backgroundColor=color_win;
+  if (score_o == score_x) {
+    score_x_view.style.backgroundColor = color_tie;
+    score_o_view.style.backgroundColor = color_tie;
+  } else if (score_x > score_o) {
+    score_x_view.style.backgroundColor = color_win;
+    score_o_view.style.backgroundColor = color_lose;
+  } else {
+    score_x_view.style.backgroundColor = color_lose;
+    score_o_view.style.backgroundColor = color_win;
   }
 
   //changing color based on win/losing/tie
-
 }
 // ------------------------------------------------------------------------------------------
 function check(turn) {
@@ -127,9 +136,7 @@ function check(turn) {
       if (turn == "X") {
         score_x_view.innerHTML = ++score_x;
         color();
-      }
-      else
-      {
+      } else {
         score_o_view.innerHTML = ++score_o;
         color();
       }
@@ -163,16 +170,15 @@ btn.onclick = () => {
     reset();
     score_o_view.innerHTML = "0";
     score_x_view.innerHTML = "0";
-  }
-  else{
+  } else {
     console.log("Cancelled reset operation.");
   }
 };
 // ------------------------------------------------------------------------------------------
 resetBoardBtn.onclick = () => {
   console.log("Clicked on reset board btn");
-    resetGameBoard()
-    setTurn()
+  resetGameBoard();
+  setTurn();
 };
 // ------------------------------------------------------------------------------------------
 Array.from(boxes).forEach((ele) => {
@@ -184,7 +190,7 @@ Array.from(boxes).forEach((ele) => {
       // isClicked[ele.id] = 1;
       if (turn == 0) {
         ele.innerHTML = "X";
-        ele.style.color=color_x;
+        ele.style.color = color_x;
         turn = 1;
         setTimeout(function () {
           done = check("X");
@@ -196,7 +202,7 @@ Array.from(boxes).forEach((ele) => {
         if (done == true) return;
       } else {
         ele.innerHTML = "O";
-        ele.style.color=color_o;
+        ele.style.color = color_o;
         turn = 0;
         setTimeout(function () {
           done = check("O");
@@ -208,15 +214,21 @@ Array.from(boxes).forEach((ele) => {
       }
       // checkTie();
       //color of the box to be reverted back
-      ele.style.transition="background-color 5s ease;"
-
+      // ele.style.transition="background-color 5s ease"
       ele.classList.remove("box-no-hover");
+      ele.classList.remove("box-hover");
       // ele.classList.add("box-hover");
       // setTimeout(function () {
       //   console.log("Delay before removing hover effect");
       // }, 10000);
-      ele.classList.remove("box-hover");
-      // ele.style.backgroundColor=color_maindark;
+
+      // ele.classList.remove("transition-slow");
+      // ele.classList.add("transition-fast");
+      // ele.style.backgroundColor = color_mainLight;
+      // ele.classList.remove("transition-fast");
+      // ele.classList.add("transition-slow");
+      // ele.style.backgroundColor = color_mainDarker;
+      // ele.classList.remove("transition-slow");
 
       isClicked[ele.id] = 1;
     } else {
@@ -231,22 +243,22 @@ Array.from(boxes).forEach((ele) => {
 
 Array.from(boxes).forEach((ele) => {
   ele.addEventListener("mouseover", () => {
-    if(isClicked[ele.id]=='0')
-    {
-      console.log("Hovering on box "+ele.id);
-      ele.style.transition="background-color .5s ease;"
+    if (isClicked[ele.id] == "0") {
+      console.log("Hovering on box " + ele.id);
+      ele.style.transition = "background-color .5s ease;";
       ele.classList.remove("box-no-hover");
       ele.classList.add("box-hover");
     }
-  })});
+  });
+});
 
 Array.from(boxes).forEach((ele) => {
   ele.addEventListener("mouseout", () => {
-    if(isClicked[ele.id]==0)
-    {
-      console.log("Unhovered from box "+ele.id);
-      ele.style.transition="background-color .5s ease;"
+    if (isClicked[ele.id] == 0) {
+      console.log("Unhovered from box " + ele.id);
+      ele.style.transition = "background-color .5s ease;";
       ele.classList.remove("box-hover");
       ele.classList.add("box-no-hover");
     }
-  })});
+  });
+});
