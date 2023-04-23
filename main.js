@@ -70,6 +70,7 @@ reset();
 
 // ------------------------------------------------------------------------------------------
 function resetGameBoard() {
+  console.log("Function resetGameBoard called");
   Array.from(boxes).forEach((ele) => {
     ele.innerHTML = " ";
     ele.classList.remove("box-hover");
@@ -79,29 +80,36 @@ function resetGameBoard() {
     isClicked[i] = 0;
   }
 }
+function resetScoreBoard(){
+  console.log("Function resetScoreBoard called");
+  score_o=0;
+  score_x=0;
+  score_o_view.innerHTML=score_o;
+  score_x_view.innerHTML=score_x;
+}
 // ------------------------------------------------------------------------------------------
 function setTurn() {
+  console.log("Function setTurn called");
   if (Math.random() < 0.5) {
     turnTxt.innerHTML = "Turn of X";
     turn = 0;
-    color();
+    // color();
   } else {
     turnTxt.innerHTML = "Turn of O";
     turn = 1;
-    color();
+    // color();
   }
 }
 function reset() {
-  console.log("reset function called");
+  console.log("Function reset called");
   resetGameBoard();
-
-  function checkTie() {
-    console.log("\nChecking Tie");
-  }
+  resetScoreBoard();
   setTurn();
+  color();
 }
 // ------------------------------------------------------------------------------------------
 function color() {
+  console.log("Function color called");
   //changing color based on turn of x and o
   if (turn == 0) {
     v.style.color = color_x;
@@ -126,6 +134,7 @@ function color() {
 }
 // ------------------------------------------------------------------------------------------
 function check(turn) {
+  console.log("Function check called");
   for (let i = 0; i < winArray.length; i++) {
     var a = document.getElementById(winArray[i][0]);
     var b = document.getElementById(winArray[i][1]);
@@ -140,13 +149,14 @@ function check(turn) {
         score_o_view.innerHTML = ++score_o;
         color();
       }
-      reset();
+      resetGameBoard();
       break;
     }
   }
 }
 // ------------------------------------------------------------------------------------------
 function checkTie() {
+  console.log("Function checkTie called");
   let f = 1;
   for (let i = 0; i < isClicked.length; i++) {
     if (isClicked[i] == 0) {
@@ -179,10 +189,12 @@ resetBoardBtn.onclick = () => {
   console.log("Clicked on reset board btn");
   resetGameBoard();
   setTurn();
+  color();
 };
 // ------------------------------------------------------------------------------------------
 Array.from(boxes).forEach((ele) => {
   ele.addEventListener("click", () => {
+  console.log("Clicked on board box "+ele.id);
     //alert(ele.target);
     let done = false; //stores if win or tie is done (happened)
     if (isClicked[ele.id] == 0) {
