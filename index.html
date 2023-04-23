@@ -17,15 +17,20 @@
         <nav class="nav-bar">
             <ul class="nav-list">
                 <li><img class="header-icon" src="./images/TicTacToeIcon-nobg.png" alt=""></li>
-                <li><span><a href="#" class="invisible-links">TicTacToe</a></span></li>
+                <li><span>TicTacToe</span></li>
             </ul>
         </nav>
     </header>
-    <div class="container">
+    <div class="container" id="container">
         <div class="container-sub turn-text">
             <div id="turn-text">Turn of X</div>
+            <img class="reset-board-btn" id="reset-board-btn" src="./images/reload_icon.png" alt="" title="Reset the board">
         </div>
         <div class="container-sub grid">
+            <!-- <div class="reset-board">
+                <div id="reset-board-btn" class="reset-board-inner" title="Reset the board"><img
+                        src="./images/reload_icon.png" alt=""></div>
+            </div> -->
             <div id="grid">
                 <div class="box box-0" id="0"></div>
                 <div class="box box-1" id="1"></div>
@@ -53,17 +58,23 @@
                     </div>
                 </div>
                 <div class="reset">
-                    <button onclick="restart()" id="reset-btn">Restart</button>
+                    <button onclick="reset()" id="reset-btn">New Game</button>
                 </div>
             </div>
         </div>
     </div>
     <footer>
         <ul class="footer-links">
-            <li class="footer-link"><a class="invisible-links" href="https://github.com/shyam-1024/TicTacToe">View on GitHub</a></li>
-            <li class="footer-link"><a class="invisible-links" href="https://linktr.ee/everythingshyam">Know the developer</a></li>
-            <li class="footer-link"><a class="invisible-links" href="mailto:s1024creative@gmail.com?subject=Feedback%20from%20TicTacToe%20Website">Give Feedback</a></li>
-            <li class="footer-link"><a class="invisible-links" href="mailto:s1024creative@gmail.com?subject=Issue%20Reporting%20from%20TicTacToe%20Website">Report an issue</a></li>
+            <li class="footer-link"><a class="invisible-links" href="https://github.com/shyam-1024/TicTacToe"
+                    target="_blank">View on GitHub</a></li>
+            <li class="footer-link"><a class="invisible-links" href="https://linktr.ee/everythingshyam"
+                    target="_blank">Know the developer</a></li>
+            <li class="footer-link"><a class="invisible-links"
+                    href="mailto:s1024creative@gmail.com?subject=Feedback%20from%20TicTacToe%20Website"
+                    target="_blank">Give Feedback</a></li>
+            <li class="footer-link"><a class="invisible-links"
+                    href="mailto:s1024creative@gmail.com?subject=Issue%20Reporting%20from%20TicTacToe%20Website"
+                    target="_blank">Report an issue</a></li>
         </ul>
     </footer>
 </body>

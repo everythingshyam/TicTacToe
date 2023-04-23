@@ -1,6 +1,7 @@
 /* 
  TODO make proper themed colors
  TODO css for smartphone screens
+ TODO change footer link text color on hover
 */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap");
 
@@ -12,10 +13,10 @@
   --main-darker: #242424;
   --main-darkest: #000;
 
-  --x-color: #22559c;
-  --o-color: #f27370;
+  --x-color: #3e6498;
+  --o-color: #e53532;
 
-  --tie-color: rgb(248, 248, 47);
+  --tie-color: rgb(244, 244, 66);
   --win-color: rgb(36, 248, 57);
   --lose-color: rgb(251, 58, 58);
 
@@ -42,6 +43,7 @@
   /*  */
   /* border: 1px solid black; */
   text-shadow: 2px 2px 8px var(--main-dark);
+  transition: background-color .5s ease;
 }
 .invisible-links {
   text-decoration: none;
@@ -119,12 +121,50 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-shadow: 2px 2px 8px var(--main-lighter);
 }
 #turn-text {
   font-size: 5vh;
+  text-shadow: 1px 1px 5px var(--main-light);
+  padding: 10px;
 }
+.reset-board-btn{
+  height: 3vw;
+  padding: 5px;
+  background-color: var(--main-lighter);
+  opacity: 30%;
+  border-radius: 50%;
+}
+.reset-board-btn:hover{
+  opacity: 100%;
+}
+
 /* -------------------------------------------------- */
+/* .reset-board{
+  position: relative;
+  width: 0px;
+  top: 16vh;
+  left: -5.5vw;
+  overflow: visible;
+}
+.reset-board-inner{
+  width: 50px;
+  height: 50px;
+  padding: 3px;
+  background-color: var(--main-light);
+  text-align: center;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reset-board-inner:hover{
+  cursor: pointer;
+  background-color: var(--main-lighter);
+}
+.reset-board-inner>img{
+  height: 30px;
+  opacity: 40%;
+} */
 .grid {
   grid-row: 2;
   grid-column: 1;
@@ -146,14 +186,19 @@ header {
   align-items: center;
   /* padding: 2px; */
   margin: 3%;
-  background-color: var(--main-dark);
   font-size: 8vh;
+  background-color: var(--main-dark);
+  text-shadow: 1px 1px 2px var(--main-light);
+  /* transition: background-color .5s ease; */
   /* border-radius: 10px; */
 }
 
-.box:hover {
+.box-hover {
   background-color: var(--main-light);
   cursor: pointer;
+}
+.box-no-hover{
+  background-color: var(--main-dark);
 }
 
 .box-0,
@@ -215,16 +260,17 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-shadow: 1px 1px 10px var(--main-dark);
 }
 .player-label {
   font-size: 2.5vw;
-  text-shadow: 2px 2px 10px var(--main-lighter);
 }
 #label-x{
     color: var(--x-color);
 }
 #label-o{
     color: var(--o-color);
+    text-shadow: 1px 1px 10px var(--main-darker);
 }
 .player-score {
   border-radius: 5px;
@@ -269,5 +315,5 @@ footer {
 }
 .footer-link:hover {
   cursor: pointer;
-  background-color: var(--main-lighter);
+  background-color: var(--main-dark);
 }

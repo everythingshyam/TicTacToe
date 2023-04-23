@@ -1,9 +1,10 @@
 /* 
  TODO footer height inapt
+ TODO remove common lines from both styles
 */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap");
-
-:root {
+@import url("./styles.css");
+/* :root {
   --main-lightest: #fff;
   --main-lighter: #bdbdbd;
   --main-light: #909090;
@@ -12,7 +13,7 @@
   --main-darkest: #000;
 
   --x-color: #22559c;
-  --o-color: #f27370;
+  --o-color: #ed514e;
 
   --tie-color: rgb(248, 248, 47);
   --win-color: rgb(36, 248, 57);
@@ -20,7 +21,7 @@
 
   --imp-red: rgb(254, 17, 17);
 
-  /* --main-light: #C08497;*/
+  /* --main-light: #C08497;
   --main-light-diff: #c290a0;
   --main-light2: #f1dabf;
   --secondary-bright: #fffbff;
@@ -30,34 +31,36 @@
     --main-light-trans: rgba(192, 132, 151,.5);
     --main-light2-trans: rgba(241, 218, 191,.5);
     --secondary-bright-trans: rgba(255, 251, 255,.5);
-    --secondary-dark-trans: rgba(107, 39, 55,.5); */
-}
+    --secondary-dark-trans: rgba(107, 39, 55,.5); 
+} */
+
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
+  /* overflow: hidden; */
   /*  */
   /* border: 1px solid black; */
-  text-shadow: 2px 2px 8px var(--main-dark);
+  /* text-shadow: 2px 2px 8px var(--main-dark); */
 }
 .invisible-links {
   text-decoration: none;
-  color: var(--main-lightest);
+  /* color: var(--main-lightest); */
 }
 
 body {
   font-family: "Ubuntu", "Courier New", Courier, monospace;
-  background-color: var(--main-lighter);
-  color: var(--main-lightest);
+  /* background-color: var(--main-lighter); */
+  /* color: var(--main-lightest); */
+  height: 120vh;
   overflow: scroll;
 }
 /* -------------------------------------------------------------------------------------------------------------- */
 header {
   height: 10vh;
-  background-color: var(--main-darker);
-  color: var(--secondary-bright);
+  /* background-color: var(--main-darker); */
+  /* color: var(--secondary-bright); */
   display: flex;
   justify-content: center;
   font-size: 8vh;
@@ -102,8 +105,8 @@ header {
   padding-bottom: 2.5vw;
 }
 .container-sub {
-  background-color: var(--main-dark);
-  box-shadow: 2px 2px 8px var(--main-dark);
+  /* background-color: var(--main-dark); */
+  /* box-shadow: 2px 2px 8px var(--main-dark); */
   /* background-color: var(--main-lighter); */
   border-radius: 10px;
   border: 2px solid var(--main-darkest);
@@ -121,7 +124,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-shadow: 2px 2px 8px var(--main-lighter);
+  /* text-shadow: 2px 2px 8px var(--main-lighter); */
 }
 #turn-text {
   /* font-size: 5vh; */
@@ -132,12 +135,27 @@ header {
   grid-row: 2;
   grid-column: 1;
 } */
+.reset-board{
+  position: relative;
+  width: 0px;
+  top: -21vh;
+  left: 45vw;
+  overflow: visible;
+}
+.reset-board-inner{
+  font-size:12px;
+  width: 80px;
+  padding: 3px;
+  background-color: var(--main-light);
+  text-align: center;
+  border-radius: 5px;
+}
 #grid {
   display: grid;
   grid-template-columns: repeat(3, min(27vw, 12vh));
   grid-template-rows: repeat(3, min(27vw, 12vh));
   /* margin: 20px; */
-  background-color: var(--main-lightest);
+  /* background-color: var(--main-lightest); */
   /* padding: 5px; */
 }
 .box {
@@ -147,15 +165,15 @@ header {
   align-items: center;
   /* padding: 2px; */
   margin: 3%;
-  background-color: var(--main-dark);
+  /* background-color: var(--main-dark); */
   font-size: 8vh;
   /* border-radius: 10px; */
 }
-
+/* 
 .box:hover {
-  background-color: var(--main-light);
+  /* background-color: var(--main-light); 
   cursor: pointer;
-}
+} */
 
 .box-0,
 .box-1,
@@ -202,7 +220,7 @@ header {
   width: min(8vh, 32vw);
   /*  */
   /* height: 10vw; */
-  background-color: var(--main-light);
+  /* background-color: var(--main-light); */
   /* margin: 20px; */
   padding: 2px 8px;
   /* padding: 0; */
@@ -221,13 +239,13 @@ header {
 }
 .player-label {
   font-size: 5vw;
-  text-shadow: 2px 2px 10px var(--main-lighter);
+  /* text-shadow: 2px 2px 10px var(--main-lighter); */
 }
 #label-x{
-    color: var(--x-color);
+    /* color: var(--x-color); */
 }
 #label-o{
-    color: var(--o-color);
+    /* color: var(--o-color); */
 }
 .player-score {
   border-radius: 5px;
@@ -239,36 +257,41 @@ header {
   font-weight: bold;
   font-size: 2.2vh;
   /* display: none; */
-  height: 30px;
+  height: 55px;
   width: 20vw;
-  border-radius: 2vh;
+  border-radius: 1.5vh;
   border: 2px solid var(--main-darker);
   /* height: 3vw; */
   color: var(--imp-red);
-  background-color: var(--main-lighter);
-  text-shadow: 2px 2px 8px var(--main-light);
+  /* background-color: var(--main-lighter); */
+  /* text-shadow: 2px 2px 8px var(--main-light); */
 }
 #reset-btn:hover {
   cursor: pointer;
-  color: var(--secondary-bright);
-  background-color: var(--imp-red);
+  /* color: var(--secondary-bright); */
+  /* background-color: var(--imp-red); */
 }
 footer {
   /* height: 12vh; */
-  height: auto;
+  height: 17vh;
   padding: 10px;
-  background-color: var(--main-darker);
-  color: var(--secondary-bright);
+  padding-top: 0;
+  /* background-color: var(--main-darker); */
+  /* color: var(--secondary-bright); */
   display: flex;
-  align-items: center;
+  align-items:center;
   justify-content: center;
   font-size: 80%;
 }
 .footer-links {
   display: flex;
   flex-direction: column;
+  /* display: grid; */
+  /* grid-template-rows: repeat(2,1fr);
+  grid-template-columns: repeat(2,1fr); */
   width: 80vw;
   justify-content: space-between;
+  /* overflow: scroll; */
 }
 .footer-link {
     /* height: 2px; */
@@ -282,5 +305,5 @@ footer {
 }
 .footer-link:hover {
   cursor: pointer;
-  background-color: var(--main-lighter);
+  /* background-color: var(--main-lighter); */
 }
