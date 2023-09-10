@@ -3,6 +3,7 @@
  TODO css for smartphone screens
  TODO change footer link text color on hover
  TODO scroll not all working
+ TODO fix broken CSS after CSS files merge
 */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap");
 
@@ -29,8 +30,6 @@
   padding: 0;
   box-sizing: border-box;
   overflow: hidden;
-  /*  */
-  /* border: 1px solid black; */
   text-shadow: 2px 2px 8px var(--main-dark);
   transition: background-color 0.5s ease;
   transition: color .5s ease;
@@ -40,10 +39,22 @@
   color: var(--main-lightest);
 }
 .transition-fast {
-  transition: background-color .5s ease;
+  transition: background-color 2s ease;
 }
 .transition-slow {
   transition: background-color 2s ease;
+}
+@keyframes flicker{
+  20%, 40%, 60%, 80%, 100%{opacity:1;};
+  0%, 10%, 50%, 90%{opacity:0;};
+  30%, 70%{opacity:0.5;};
+}
+.flicker-on{
+  /* animation: flicker 5s infinite; */
+  animation: blink 7s infinite linear alternate;
+}
+.flicker-off{
+  animation: none;
 }
 
 body {
@@ -68,9 +79,7 @@ header {
   list-style-type: none;
 }
 .nav-list > li {
-  /* padding-left: 20px; */
   display: flex;
-  /* justify-content: center; */
   align-items: center;
 }
 .nav-list > li:first-child {
@@ -85,13 +94,10 @@ header {
 /* --------------------------------------------------------------------------------------------------------------------- */
 .container {
   height: 73vh;
-  /* display: flex; */
-  /* flex-direction: column; */
   display: grid;
   grid-template-rows: 10vh 50vh;
   grid-template-columns: 30vw 25vw;
   grid-gap: 10px;
-  /* display: flex; */
   align-items: center;
   justify-content: center;
   padding-top: 2.5vw;
@@ -100,12 +106,10 @@ header {
 .container-sub {
   background-color: var(--main-dark);
   box-shadow: 2px 2px 8px var(--main-dark);
-  /* background-color: var(--main-lighter); */
   border-radius: 10px;
   border: 2px solid var(--main-darkest);
   height: 100%;
   width: 100%;
-  /* ----------------- */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -137,58 +141,27 @@ header {
 }
 
 /* -------------------------------------------------- */
-/* .reset-board{
-  position: relative;
-  width: 0px;
-  top: 16vh;
-  left: -5.5vw;
-  overflow: visible;
-}
-.reset-board-inner{
-  width: 50px;
-  height: 50px;
-  padding: 3px;
-  background-color: var(--main-light);
-  text-align: center;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.reset-board-inner:hover{
-  cursor: pointer;
-  background-color: var(--main-lighter);
-}
-.reset-board-inner>img{
-  height: 30px;
-  opacity: 40%;
-} */
+
 .grid {
   grid-row: 2;
   grid-column: 1;
 }
 #grid {
   display: grid;
-  grid-template-columns: repeat(3, min(10vw, 15vh));
   grid-template-columns: repeat(3, min(8vw, 14vh));
-  grid-template-rows: repeat(3, min(10vw, 15vh));
   grid-template-rows: repeat(3, min(8vw, 14vh));
-  /* margin: 20px; */
   background-color: var(--main-lightest);
-  /* padding: 5px; */
 }
 .box {
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding: 2px; */
   margin: 3%;
   font-size: 8vh;
   background-color: var(--main-dark);
   text-shadow: 1px 1px 2px var(--main-light);
   transition: background-color 1s ease;
-  /* border-radius: 10px; */
 }
 
 .box-hover {
@@ -224,9 +197,6 @@ header {
   grid-row: span 2;
 }
 #control-panel {
-  /* height: 50vh; */
-  /* width: 30vw; */
-  /* background-color: var(--main-light); */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -235,23 +205,18 @@ header {
   height: 30vh;
 }
 .score {
-  /* width: 20vw; */
   display: flex;
   justify-content: space-around;
 }
 .score-board {
   height: min(15vh, 10vw);
   width: min(10vh, 5vw);
-  /* height: 10vw; */
   background-color: var(--main-light);
-  /* margin: 20px; */
   padding: 2px 8px;
   margin: 10px;
-  /* margin-bottom: 0; */
   display: grid;
   grid-template-rows: 1.2fr 1fr;
   font-size: 3vw;
-  /* flex-direction: column; */
   border-radius: 5px;
 }
 .score-board-inner {
@@ -276,16 +241,12 @@ header {
   margin-bottom: 4px;
 }
 #reset-btn {
-  /* text-transform: uppercase; */
   font-weight: bold;
   font-size: 2.5vh;
-  /* display: none; */
   height: 40px;
   width: 13vw;
   border-radius: 2vh;
   border: 2px solid var(--main-darker);
-  /* height: 3vw; */
-  color: var(--imp-red);
   background-color: var(--main-lighter);
   text-shadow: 2px 2px 8px var(--main-light);
 }
@@ -314,4 +275,96 @@ footer {
 .footer-link:hover {
   cursor: pointer;
   background-color: var(--main-dark);
+}
+
+/* Smartphone Styles */
+
+@media screen and (max-width: 950px) {
+
+/* 
+ TODO footer height inapt
+ TODO remove common lines from both styles
+*/
+
+body {
+  width: 100vw;
+  height: 120vh;
+  overflow: auto;
+}
+/* -------------------------------------------------------------------------------------------------------------- */
+header {
+  height: 10vh;
+}
+.nav-bar {
+  font-size: 70%;
+}
+
+.header-icon {
+  height: 7vh;
+}
+/* --------------------------------------------------------------------------------------------------------------------- */
+.container {
+  grid-template-rows: 6vh 45vh 10vh;
+  grid-template-columns: 90vw;
+}
+
+/* ----------------------------------------------------- */
+#turn-text {
+  font-size: 120%;
+}
+.reset-board-btn {
+  height: 4vh;
+  padding: 3px;
+  padding-bottom: 4px;
+}
+
+#grid {
+  grid-template-columns: repeat(3, min(27vw, 12vh));
+  grid-template-rows: repeat(3, min(27vw, 12vh));
+}
+
+/* ------------------------------------------------------------------------------------------------------------- */
+#control-panel {
+  width: 80vw;
+  height: 13vh;
+}
+
+.score-board {
+  height: min(12vh, 45vw);
+  width: min(8vh, 32vw);
+  grid-template-rows: 1fr 1.2fr;
+  font-size: 7vw;
+}
+
+.player-label {
+  font-size: 5vw;
+}
+
+#reset-btn {
+  font-size: 2.2vh;
+  height: 55px;
+  width: 20vw;
+  border-radius: 1.5vh;
+  color: var(--imp-red);
+}
+
+footer {
+  height: 17vh;
+  padding: 10px;
+  padding-top: 0;
+  font-size: 80%;
+}
+
+.footer-links {
+  flex-direction: column;
+}
+
+.footer-link > a {
+  padding: 2px 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+
 }
