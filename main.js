@@ -67,6 +67,7 @@ var v = document.getElementById("turn-text");
 //RUN AT STARTUP SECTION
 
 reset();
+// flicker();
 
 // ------------------------------------------------------------------------------------------
 function resetGameBoard() {
@@ -80,12 +81,12 @@ function resetGameBoard() {
     isClicked[i] = 0;
   }
 }
-function resetScoreBoard(){
+function resetScoreBoard() {
   console.log("Function resetScoreBoard called");
-  score_o=0;
-  score_x=0;
-  score_o_view.innerHTML=score_o;
-  score_x_view.innerHTML=score_x;
+  score_o = 0;
+  score_x = 0;
+  score_o_view.innerHTML = score_o;
+  score_x_view.innerHTML = score_x;
 }
 // ------------------------------------------------------------------------------------------
 function setTurn() {
@@ -170,6 +171,17 @@ function checkTie() {
   }
 }
 // ------------------------------------------------------------------------------------------
+function flicker() {
+  var allElem = document.querySelectorAll("*");
+  allElem.forEach((ele) => {
+    ele.classList.add("flicker-on");
+    setTimeout(function () {
+      console.log("Delay before removing flicker effect");
+      // ele.classList.remove("flicker-on");
+    }, 3000);
+  });
+}
+// ------------------------------------------------------------------------------------------
 btn.onclick = () => {
   console.log("Clicked on reset btn");
   let cnfreset = window.confirm(
@@ -194,7 +206,7 @@ resetBoardBtn.onclick = () => {
 // ------------------------------------------------------------------------------------------
 Array.from(boxes).forEach((ele) => {
   ele.addEventListener("click", () => {
-  console.log("Clicked on board box "+ele.id);
+    console.log("Clicked on board box " + ele.id);
     //alert(ele.target);
     let done = false; //stores if win or tie is done (happened)
     if (isClicked[ele.id] == 0) {

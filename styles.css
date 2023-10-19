@@ -40,10 +40,22 @@
   color: var(--main-lightest);
 }
 .transition-fast {
-  transition: background-color .5s ease;
+  transition: background-color 2s ease;
 }
 .transition-slow {
   transition: background-color 2s ease;
+}
+@keyframes flicker{
+  20%, 40%, 60%, 80%, 100%{opacity:1;};
+  0%, 10%, 50%, 90%{opacity:0;};
+  30%, 70%{opacity:0.5;};
+}
+.flicker-on{
+  /* animation: flicker 5s infinite; */
+  animation: blink 7s infinite linear alternate;
+}
+.flicker-off{
+  animation: none;
 }
 
 body {
