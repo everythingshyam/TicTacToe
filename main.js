@@ -68,6 +68,7 @@ var v = document.getElementById("turn-text");
 
 reset();
 // flicker();
+// flicker();
 
 // ------------------------------------------------------------------------------------------
 function resetGameBoard() {
@@ -81,6 +82,7 @@ function resetGameBoard() {
     isClicked[i] = 0;
   }
 }
+function resetScoreBoard() {
 function resetScoreBoard() {
   console.log("Function resetScoreBoard called");
   score_o = 0;
