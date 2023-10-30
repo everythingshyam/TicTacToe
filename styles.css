@@ -1,10 +1,3 @@
-/* 
- TODO make proper themed colors
- TODO css for smartphone screens
- TODO change footer link text color on hover
- TODO scroll not all working
- TODO fix broken CSS after CSS files merge
-*/
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap');
 
 :root {
@@ -29,80 +22,33 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	overflow: hidden;
+	/* overflow: hidden; */
 	text-shadow: 2px 2px 8px var(--main-dark);
 	transition: background-color 0.5s ease;
 	transition: color 0.5s ease;
+	/* border: 1px solid black; */
 }
+
+li {
+	list-style-type: none;
+}
+
 .invisible-links {
 	text-decoration: none;
 	color: var(--main-lightest);
-}
-.transition-fast {
-	transition: background-color 2s ease;
-	transition: background-color 2s ease;
-}
-.transition-slow {
-	transition: background-color 2s ease;
-}
-@keyframes flicker {
-	20%,
-	40%,
-	60%,
-	80%,
-	100% {
-		opacity: 1;
-	}
-	0%,
-	10%,
-	50%,
-	90% {
-		opacity: 0;
-	}
-	30%,
-	70% {
-		opacity: 0.5;
-	}
-}
-.flicker-on {
-	/* animation: flicker 5s infinite; */
-	animation: blink 7s infinite linear alternate;
-}
-.flicker-off {
-	animation: none;
-}
-@keyframes flicker {
-	20%,
-	40%,
-	60%,
-	80%,
-	100% {
-		opacity: 1;
-	}
-	0%,
-	10%,
-	50%,
-	90% {
-		opacity: 0;
-	}
-	30%,
-	70% {
-		opacity: 0.5;
-	}
-}
-.flicker-on {
-	/* animation: flicker 5s infinite; */
-	animation: blink 7s infinite linear alternate;
-}
-.flicker-off {
-	animation: none;
 }
 
 body {
 	font-family: 'Ubuntu', 'Courier New', Courier, monospace;
 	background-color: var(--main-lighter);
 	color: var(--main-lightest);
+	/* overflow: scroll; */
 }
+
+body > * {
+	width: 100%;
+}
+
 header {
 	height: 15vh;
 	background-color: var(--main-darker);
@@ -111,39 +57,49 @@ header {
 	justify-content: center;
 	font-size: 8vh;
 }
+
 .nav-bar {
 	display: flex;
 	align-items: center;
 }
+
 .nav-list {
 	display: flex;
 	list-style-type: none;
 }
+
 .nav-list > li {
 	display: flex;
 	align-items: center;
 }
+
 .nav-list > li:first-child {
 	padding-right: 5px;
 }
+
 .nav-list > li:nth-child(2) {
 	padding-left: 5px;
 }
+
 .header-icon {
 	height: 10vh;
 }
-/* --------------------------------------------------------------------------------------------------------------------- */
+
 .container {
-	height: 73vh;
+	height: 100vh;
+	/* height: calc(100vh -var(--browser-ui-height)); */
+	/* width: ; */
 	display: grid;
-	grid-template-rows: 10vh 50vh;
-	grid-template-columns: 30vw 25vw;
+	grid-template-rows: 1fr 5fr;
+	grid-template-columns: 6fr 5fr;
 	grid-gap: 10px;
 	align-items: center;
 	justify-content: center;
-	padding-top: 2.5vw;
-	padding-bottom: 2.5vw;
+	padding: 4vh 12vw;
+	/* padding-top: 2.5vw; */
+	/* padding-bottom: 2.5vw; */
 }
+
 .container-sub {
 	background-color: var(--main-dark);
 	box-shadow: 2px 2px 8px var(--main-dark);
@@ -155,19 +111,22 @@ header {
 	align-items: center;
 	justify-content: center;
 }
-/* ----------------------------------------------------- */
+
 .turn-text {
 	grid-row: 1;
 	grid-column: 1;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	padding: 0 10px;
 }
+
 #turn-text {
 	font-size: 5vh;
 	text-shadow: 1px 1px 5px var(--main-darker);
 	padding: 10px;
 }
+
 .reset-board-btn {
 	height: 5vh;
 	padding: 5px;
@@ -176,29 +135,44 @@ header {
 	border-radius: 50%;
 	margin-right: 6px;
 }
+
 .reset-board-btn:hover {
 	opacity: 100%;
 	cursor: pointer;
 }
 
-/* -------------------------------------------------- */
-
 .grid {
 	grid-row: 2;
 	grid-column: 1;
 }
+
 #grid {
 	display: grid;
-	grid-template-columns: repeat(3, min(8vw, 14vh));
-	grid-template-rows: repeat(3, min(8vw, 14vh));
+	/* aspect-ratio: 1/1; */
+	width: 70%;
+	height: 80%;
+	/* @media screen and (min-width: 1450px) {
+		height: 90%;
+		width: auto;
+	}
+	@media screen and (max-height: 1000px) {
+		height: 90%;
+		width: auto;
+	} */
+	/* grid-template-columns: repeat(3, min(8vw, 14vh)); */
+	/* grid-template-rows: repeat(3, min(8vw, 14vh)); */
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	gap: 5px;
 	background-color: var(--main-lightest);
 }
+
 .box {
-	box-sizing: border-box;
+	/* box-sizing: border-box; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 3%;
+	/* margin: 3%; */
 	font-size: 8vh;
 	background-color: var(--main-dark);
 	text-shadow: 1px 1px 2px var(--main-light);
@@ -209,6 +183,7 @@ header {
 	background-color: var(--main-light);
 	cursor: pointer;
 }
+
 .box-no-hover {
 	background-color: var(--main-dark);
 }
@@ -218,123 +193,176 @@ header {
 .box-2 {
 	margin-top: 0;
 }
+
 .box-0,
 .box-3,
 .box-6 {
 	margin-left: 0;
 }
+
 .box-6,
 .box-7,
 .box-8 {
 	margin-bottom: 0;
 }
+
 .box-2,
 .box-5,
 .box-8 {
 	margin-right: 0;
 }
-/* ------------------------------------------------------------------------------------------------------------- */
+
 .control-panel {
 	grid-row: span 2;
 }
-#control-panel {
+
+.control-panel-sub {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
-	width: 25vw;
-	height: 30vh;
+	/* width: 25vw; */
+	/* height: 30vh; */
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: 2fr 1fr;
 }
-.score {
+
+.square {
+	aspect-ratio: 1/1;
+	width: 60%;
+	height: auto;
+	@media screen and (min-width: 2150px) {
+		height: 60%;
+		width: auto;
+	}
+	@media screen and (max-height: 700px) {
+		height: 60%;
+		width: auto;
+	}
+}
+
+.control-panel-sub > * {
+	width: 100%;
+	height: 100%;
 	display: flex;
-	justify-content: space-around;
+	align-items: center;
+	justify-content: center;
 }
+
+.score {
+	/* display: flex; */
+	/* justify-content: space-around; */
+	padding: 50px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
 .score-board {
-	height: min(15vh, 10vw);
-	width: min(10vh, 5vw);
+	/* height: min(15vh, 10vw);
+	width: min(10vh, 5vw); */
+	aspect-ratio: 2/3;
 	background-color: var(--main-light);
-	padding: 2px 8px;
+	/* padding: 2px 8px; */
 	margin: 10px;
 	display: grid;
-	grid-template-rows: 1.2fr 1fr;
+	grid-template-rows: 1fr 1fr;
 	font-size: 3vw;
-	border-radius: 5px;
+	border-radius: 15px;
 }
+
 .score-board-inner {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	text-shadow: 1px 1px 10px var(--main-dark);
 }
+
 .player-label {
-	font-size: 2.5vw;
+	/* font-size: 2.5vw; */
+	font-size: 1.3em;
 }
+
 #label-x {
 	color: var(--x-color);
 }
+
 #label-o {
 	color: var(--o-color);
 	text-shadow: 1px 1px 10px var(--main-darker);
 }
+
 .player-score {
-	border-radius: 5px;
+	border-radius: 15px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
 	background-color: var(--tie-color);
-	margin-bottom: 4px;
+	/* margin-bottom: 4px; */
+	font-size: 1.5em;
 }
+
 #reset-btn {
 	font-weight: bold;
-	font-size: 2.5vh;
-	height: 40px;
-	width: 13vw;
-	border-radius: 2vh;
-	border: 2px solid var(--main-darker);
+	font-size: 1.5rem;
+	/* height: 40px; */
+	/* width: 13vw; */
+	/* aspect-ratio: 10/3; */
+	/* border: 2px solid var(--main-darker); */
+	border: none;
 	background-color: var(--main-lighter);
 	text-shadow: 2px 2px 8px var(--main-light);
+	padding: 10px 20px;
+	border-radius: 40px;
 }
+
 #reset-btn:hover {
 	cursor: pointer;
-	color: var(--secondary-bright);
-	background-color: var(--imp-red);
+	/* color: var(--secondary-bright); */
+	/* background-color: var(--imp-red); */
+	/* box-shadow: 0 0 5px var(--main-darkest); */
 }
+
 footer {
-	height: 12vh;
+	height: auto;
+	padding: 20px 5px;
 	background-color: var(--main-darker);
 	color: var(--secondary-bright);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
+
 .footer-links {
 	display: flex;
 	width: 80vw;
 	justify-content: space-between;
 }
+
 .footer-link {
 	padding: 5px;
 	border-radius: 5px;
 }
+
 .footer-link:hover {
 	cursor: pointer;
 	background-color: var(--main-dark);
 }
 
+/* -------------------------------------------------------------------------------------------- */
 /* Smartphone Styles */
+/* -------------------------------------------------------------------------------------------- */
 
-@media screen and (max-width: 950px) {
-	/* 
- TODO footer height inapt
- TODO remove common lines from both styles
-*/
-
+@media screen and (max-width: 1100px) {
 	body {
 		width: 100vw;
 		height: 120vh;
 		overflow: auto;
 	}
-	/* -------------------------------------------------------------------------------------------------------------- */
+
 	header {
 		height: 10vh;
 	}
+
 	.nav-bar {
 		font-size: 70%;
 	}
@@ -342,38 +370,63 @@ footer {
 	.header-icon {
 		height: 7vh;
 	}
-	/* --------------------------------------------------------------------------------------------------------------------- */
+
 	.container {
-		grid-template-rows: 6vh 45vh 10vh;
-		grid-template-columns: 90vw;
+		grid-template-rows: 10vh 50vh 20vh;
+		grid-template-columns: 80vw;
 	}
 
-	/* ----------------------------------------------------- */
-	#turn-text {
-		font-size: 120%;
+	.container > * {
+		overflow: hidden;
 	}
+
+	#turn-text {
+		font-size: 2rem;
+	}
+
 	.reset-board-btn {
 		height: 4vh;
 		padding: 3px;
 		padding-bottom: 4px;
 	}
 
-	#grid {
-		grid-template-columns: repeat(3, min(27vw, 12vh));
-		grid-template-rows: repeat(3, min(27vw, 12vh));
+	.grid {
+		height: 50vh;
 	}
 
-	/* ------------------------------------------------------------------------------------------------------------- */
-	#control-panel {
-		width: 80vw;
-		height: 13vh;
+	#grid {
+		/* grid-template-columns: repeat(3, min(27vw, 12vh)); */
+		/* grid-template-rows: repeat(3, min(27vw, 12vh)); */
+		height: 70%;
+		width: 80%;
+	}
+
+	.control-panel {
+		grid-row: span 1;
+	}
+
+	.control-panel-sub {
+		width: 90%;
+		height: 100%;
+		/* padding: 5px; */
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		grid-template-rows: 1fr;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.score {
+		padding: 5px;
+		display: flex;
+		justify-content: center;
 	}
 
 	.score-board {
 		height: min(12vh, 45vw);
 		width: min(8vh, 32vw);
-		grid-template-rows: 1fr 1.2fr;
-		font-size: 7vw;
+		/* grid-template-rows: 1fr 1.2fr; */
+		font-size: 4vw;
 	}
 
 	.player-label {
@@ -389,9 +442,9 @@ footer {
 	}
 
 	footer {
-		height: 17vh;
-		padding: 10px;
-		padding-top: 0;
+		/* height: 17vh; */
+		/* padding: 10px; */
+		/* padding-top: 0; */
 		font-size: 80%;
 	}
 

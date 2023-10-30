@@ -9,6 +9,7 @@
     <title>Tic Tac Toe - Play Online!</title>
     <meta title="Description"
         description="Play the fun Tic Tac Toe Game with your buddies online! Enjoy the classing game of strategy and fun, with a modern and classy UI!">
+    <meta name="theme-color" content="#000">
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -28,10 +29,6 @@
                 title="Reset the board">
         </div>
         <div class="container-sub grid">
-            <!-- <div class="reset-board">
-                <div id="reset-board-btn" class="reset-board-inner" title="Reset the board"><img
-                        src="./images/reload_icon.png" alt=""></div>
-            </div> -->
             <div id="grid">
                 <div class="box box-0" id="0"></div>
                 <div class="box box-1" id="1"></div>
@@ -45,16 +42,14 @@
             </div>
         </div>
         <div class="container-sub control-panel">
-            <div id="control-panel">
+            <div class="control-panel-sub square">
                 <div class="score">
                     <div class="score-board">
                         <span class="player-label score-board-inner" id="label-x">X</span>
-                        <!-- <hr /> -->
                         <span class="player-score score-board-inner" id="score-x">0</span>
                     </div>
                     <div class="score-board">
                         <span class="player-label score-board-inner" id="label-o">O</span>
-                        <!-- <hr /> -->
                         <span class="player-score score-board-inner" id="score-o">0</span>
                     </div>
                 </div>
@@ -78,7 +73,7 @@
                     target="_blank">Report an issue</a></li>
         </ul>
     </footer>
+    <script src="./main.js"></script>
 </body>
-<script src="./main.js"></script>
 
 </html>
